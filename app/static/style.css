@@ -520,12 +520,9 @@
 }
 .frame-250 {
   display: flex;
-  flex-direction: column;
-  gap: 1.625rem;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  position: relative;
+  flex-wrap: wrap; /* Allows wrapping to the next row */
+  gap: 16px; /* Adds spacing between cards */
+  justify-content: space-around; /* Aligns cards evenly in the row */
 }
 .frame-248 {
   display: flex;
@@ -537,13 +534,11 @@
   position: relative;
 }
 .product-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-shrink: 0;
-  position: relative;
+  flex: 1 1 calc(25% - 16px); /* Adjust width: 4 cards per row */
+  max-width: calc(25% - 16px); /* Ensure proper sizing */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 8px;
 }
 .group-4253 {
   flex-shrink: 0;
