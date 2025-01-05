@@ -6,8 +6,24 @@ def init_routes(app):
     @app.route("/")
     def home():
         """Home Page: Displays product listings."""
-        products = Product.query.all()
-        return render_template("home.html", products=products)
+        #products = Product.query.all()
+        products = [
+        {
+            "name": "Product 1",
+            "shop_name": "Shop 1",
+            "price": "$1,999.00",
+            "sales": "120 sales",
+            "image_url": url_for('static', filename='images/button-icon-cart-plus-solid0.svg')
+        },
+        {
+            "name": "Product 2",
+            "shop_name": "Shop 2",
+            "price": "$999.00",
+            "sales": "85 sales",
+            "image_url": url_for('static', filename='images/button-icon-cart-plus-solid0.svg')
+        }
+    ]
+        return render_template("index.html", products=products)
 
     @app.route("/add-product", methods=["GET", "POST"])
     def add_product():
