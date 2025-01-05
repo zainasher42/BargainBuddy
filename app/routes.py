@@ -7,7 +7,7 @@ def init_routes(app):
     def home():
         """Home Page: Displays product listings."""
         products = Product.query.all()
-        return render_template("home.html", products=products)
+        return render_template("index.html", products=products)
 
     @app.route("/add-product", methods=["GET", "POST"])
     def add_product():
