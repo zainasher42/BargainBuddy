@@ -1,22 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
-    <link rel="stylesheet" href="/static/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./vars.css">
+  <link rel="stylesheet" href="{{url_for('static',filename='styles.css')}}">
+  <style>
+    a, button, input, select, h1, h2, h3, h4, h5, * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      background: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    menu, ol, ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <title>Responsive Page</title>
 </head>
 <body>
-    <h1>Add Product</h1>
-    <form method="POST">
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" step="0.01" required><br>
-        <label for="inventory">Inventory:</label>
-        <input type="number" id="inventory" name="inventory" required><br>
-        <label for="expiry_year">Expiry Year:</label>
-        <input type="number" id="expiry_year" name="expiry_year" required><br>
-        <button type="submit">Add Product</button>
-    </form>
-    <a href="/">Back to Home</a>
+  
+
+      <div class=" row">
+        <div class="col seller-add-product">
+          <div class="container-fluid">
+            <!-- Navbar -->
+            <div class=" navbar row py-2 border-bottom">
+              <div class="col search d-flex align-items-center">
+                <div class=" frame-226 input-group">
+                  <div class="icon-search border-0">
+                    <img src="icon-search0.svg" alt="Search Icon" />
+                  </div>
+                  <input type="text" class=" search2 border-0" placeholder="Search">
+                </div>
+              </div>
+              <div class="col frame-227 d-flex justify-content-end align-items-center gap-3">
+                <img class= "icon-cart" src="icon-cart0.svg" alt="Cart Icon" />
+                <div class="button">
+                  <button class="button2 btn-primary btn-sm">Become a Buyer</button>
+                </div>
+              </div>
+            </div>
+        <!-- Sidebar -->
+        <nav class=" sidebar col-md-3 col-lg-2 text-white  d-none d-md-block">
+          <div class="frame-238">
+            <div class="frame-232">
+              <img class="icon-logo-base" src="icon-logo-base0.svg" />
+              <div class="line-1"></div>
+              <img class="icon-bars" src="icon-bars0.svg" />
+            </div>
+            <ul class=" nav flex-column">
+              <li class="nav-item py-2">
+                <a href="#" class="nav-link text-white">
+                  <img src="group-42500.svg" alt="Home Icon" class="me-2"> Home
+                </a>
+              </li>
+              <li class="nav-item py-2">
+                <a href="#" class="nav-link text-white">
+                  <img src="icon-box0.svg" alt="Box Icon" class="me-2"> My Products
+                </a>
+              </li>
+              <li class="nav-item py-2 active-tab">
+                <a href="#" class="nav-link text-white active">
+                  <img src="icon-headset0.svg" alt="Headset Icon" class="me-2"> Add Product
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <hr class="frame-237 bg-light">
+          <ul class="nav flex-column">
+            <li class="nav-item py-2">
+              <a href="#" class="nav-link text-white">
+                <img src="icon-gear0.svg" alt="Settings Icon" class="me-2"> Settings
+              </a>
+            </li>
+            <li class="nav-item py-2">
+              <a href="#" class="nav-link text-white">
+                <img src="icon-question0.svg" alt="Help Icon" class="me-2"> Help
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div class=" frame-252 col-lg-10 p-4">
+          <div class="header">
+            <h1 class="best-selling-electronics-products-weekly-update mb-4">Add Product</h1>
+          </div>
+          
+          <form method="post">
+            <label for="price" class= "quantity">Price:</label>
+            <input type="number" id="price" class="form-control-bg" name="price" step="0.01" required><br>
+            <label for="inventory" class="quantity" >Inventory:</label>
+            <input type="number" id="inventory" class="form-control-bg" name="inventory" required><br>
+            <label for="expiry_year" class="quantity">Expiry Year:</label>
+            <input type="number" id="expiry_year" class="form-control-bg" name="expiry_year" required><br>
+            <div>
+              <button type="submit" class="btn btn-success me-2">Save</button>
+              <button type="reset" class="btn btn-warning">Undo</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
