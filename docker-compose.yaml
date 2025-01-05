@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "true"
+      MYSQL_DATABASE: "bargainbuddy"
+      MYSQL_USER: "bargainbuddy"
+      MYSQL_PASSWORD: "BargainBuddy"
+    volumes:
+      - database_volume:/var/lib/mysql
+
+  
+
+volumes:
+  database_volume:
+
+  
