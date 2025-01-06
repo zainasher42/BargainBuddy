@@ -129,206 +129,44 @@
           Best Selling Products
         </div>
 
-      <div class="frame-251">
-        <div class="frame-250">
-          <div class="frame-248">
-            <div class="product-card">
-              <div class="group-4253">
-                <div class="rectangle-14"></div>
-                <div class="rectangle-16"></div>
-              </div>
-              <div class="frame-246">
-                <div class="frame-245">
-                  <div class="frame-239">
-                    <div class="name">Product Name</div>
-                    <div class="eshop-spot">Shop Name</div>
-                  </div>
-                  <div class="frame-244">
-                    <div class="frame-243">
-                      <div class="frame-240">
-                        <div class="_1-999-00">$1,999.00</div>
-                        <div class="_1-999-002"></div>
-                      </div>
-                      <div class="frame-242">
-                        <div class="sales">sales #</div>
-                      </div>
-                    </div>
-                  <href onclick="alert('cart clicked')">  <div class="button4">
-                      <img
-                        class="button-icon-cart-plus-solid"
-                        src="./static/images/button-icon-cart-plus-solid0.svg"
-                      />
-                    </div>
-                  </href>
-                  </div>
+    <div class="frame-251">
+      <div class="frame-250">
+        {% for product in products %}
+        <div class="frame-248">
+          <div class="product-card">
+            {%if product.image_filename%}
+              <img alt="image not found" class="image" src="{{ url_for('static', filename='uploads/' + product.image_filename) }}" />
+            {%endif%}
+            <div class="frame-246">
+              <div class="frame-245">
+                <div class="frame-239">
+                  <div class="name">{{ product.title }}</div>
+                  <div class="eshop-spot">{{ product.inventory }}</div>
                 </div>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="group-4253">
-                <div class="rectangle-14"></div>
-                <div class="rectangle-16"></div>
-              </div>
-              <div class="frame-246">
-                <div class="frame-245">
-                  <div class="frame-239">
-                    <div class="name">Product Name</div>
-                    <div class="eshop-spot">Shop Name</div>
-                  </div>
-                  <div class="frame-244">
-                    <div class="frame-243">
-                      <div class="frame-240">
-                        <div class="_1-999-00">$1,999.00</div>
-                        <div class="_1-999-002"></div>
-                      </div>
-                      <div class="frame-242">
-                        <div class="sales">sales #</div>
-                      </div>
+                <div class="frame-244">
+                  <div class="frame-243">
+                    <div class="frame-240">
+                      <div class="_1-999-00">{{ product.price }}</div>
+                      <div class="_1-999-002"></div>
                     </div>
-                    <href onclick="alert('cart clicked')">  <div class="button4">
-                      <img
-                        class="button-icon-cart-plus-solid"
-                        src="./static/images/button-icon-cart-plus-solid0.svg"
-                      />
+                    <div class="frame-242">
+                      <div class="sales">{{ product.expiry_year }}</div>
                     </div>
-                  </href>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="group-4253">
-                <div class="rectangle-14"></div>
-                <div class="rectangle-16"></div>
-              </div>
-              <div class="frame-246">
-                <div class="frame-245">
-                  <div class="frame-239">
-                    <div class="name">Product Name</div>
-                    <div class="eshop-spot">Shop Name</div>
-                  </div>
-                  <div class="frame-244">
-                    <div class="frame-243">
-                      <div class="frame-240">
-                        <div class="_1-999-00">$1,999.00</div>
-                        <div class="_1-999-002"></div>
-                      </div>
-                      <div class="frame-242">
-                        <div class="sales">sales #</div>
-                      </div>
+                  <a href="#" onclick="alert('cart clicked')">
+                    <div class="button4">
+                      <img class="button-icon-cart-plus-solid" src="{{ product.image_url }}" />
                     </div>
-                    <href onclick="alert('cart clicked')">  <div class="button4">
-                      <img
-                        class="button-icon-cart-plus-solid"
-                        src="./static/images/button-icon-cart-plus-solid0.svg"
-                      />
-                    </div>
-                  </href>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="frame-248">
-            <div class="product-card">
-              <div class="group-4253">
-                <div class="rectangle-14"></div>
-                <div class="rectangle-16"></div>
-              </div>
-              <div class="frame-246">
-                <div class="frame-245">
-                  <div class="frame-239">
-                    <div class="name">Product Name</div>
-                    <div class="eshop-spot">Shop Name</div>
-                  </div>
-                  <div class="frame-244">
-                    <div class="frame-243">
-                      <div class="frame-240">
-                        <div class="_1-999-00">$1,999.00</div>
-                        <div class="_1-999-002"></div>
-                      </div>
-                      <div class="frame-242">
-                        <div class="sales">sales #</div>
-                      </div>
-                    </div>
-                    <href onclick="alert('cart clicked')">  <div class="button4">
-                      <img
-                        class="button-icon-cart-plus-solid"
-                        src="./static/images/button-icon-cart-plus-solid0.svg"
-                      />
-                    </div>
-                  </href>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="group-4253">
-                <div class="rectangle-14"></div>
-                <div class="rectangle-16"></div>
-              </div>
-              <div class="frame-246">
-                <div class="frame-245">
-                  <div class="frame-239">
-                    <div class="name">Product Name</div>
-                    <div class="eshop-spot">Shop Name</div>
-                  </div>
-                  <div class="frame-244">
-                    <div class="frame-243">
-                      <div class="frame-240">
-                        <div class="_1-999-00">$1,999.00</div>
-                        <div class="_1-999-002"></div>
-                      </div>
-                      <div class="frame-242">
-                        <div class="sales">sales #</div>
-                      </div>
-                    </div>
-                    <href onclick="alert('cart clicked')">  <div class="button4">
-                      <img
-                        class="button-icon-cart-plus-solid"
-                        src="./static/images/button-icon-cart-plus-solid0.svg"
-                      />
-                    </div>
-                  </href>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="product-card">
-              <div class="group-4253">
-                <div class="rectangle-14"></div>
-                <div class="rectangle-16"></div>
-              </div>
-              <div class="frame-246">
-                <div class="frame-245">
-                  <div class="frame-239">
-                    <div class="name">Product Name</div>
-                    <div class="eshop-spot">Shop Name</div>
-                  </div>
-                  <div class="frame-244">
-                    <div class="frame-243">
-                      <div class="frame-240">
-                        <div class="_1-999-00">$1,999.00</div>
-                        <div class="_1-999-002"></div>
-                      </div>
-                      <div class="frame-242">
-                        <div class="sales">sales #</div>
-                      </div>
-                    </div>
-                    <href onclick="alert('cart clicked')">  <div class="button4">
-                      <img
-                        class="button-icon-cart-plus-solid"
-                        src="./static/images/button-icon-cart-plus-solid0.svg"
-                      />
-                    </div>
-                  </href>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        {% endfor %}
       </div>
+    </div>
+    
     </div>
   </div>
   

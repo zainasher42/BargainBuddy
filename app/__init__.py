@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 db = SQLAlchemy()
 
@@ -19,5 +20,12 @@ def create_app():
     # Create database tables if they don't exist
     with app.app_context():
         db.create_all()
+
+    # File upload configuration
+    UPLOAD_FOLDER = os.path.join('app', 'static','uploads')
+    app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+    # Ensure the upload folder exists
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
     return app
