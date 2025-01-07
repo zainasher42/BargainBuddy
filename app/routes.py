@@ -43,10 +43,15 @@ def init_routes(app):
                 return redirect(request.url)
 
             # Add product to the database
-            new_product = Product(title=title, price=price, inventory=inventory, expiry_year=expiry_year,
-                                max_discount=max_discount, image_filename=image_filename)
-            db.session.add(new_product)
-            db.session.commit()
+            if (price>0 and inventory>0 and expiry_year>=2025):
+                new_product = Product(title=title, price=price, inventory=inventory, expiry_year=expiry_year,
+                                    max_discount=max_discount, image_filename=image_filename)
+                db.session.add(new_product)
+                db.session.commit()
+                flash('Product Successfully Added!', 'success')
+            
+            else:
+                flash('Invalid Inputs', 'danger')
 
             return redirect(url_for("home"))
         return render_template("add_product.html")

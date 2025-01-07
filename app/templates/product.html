@@ -139,7 +139,7 @@
                     <h1>{{ product.title }}</h1>
                 </div>
                 <div class="prod_details">
-                    <p style="font-size: 40px; font-family:fantasy"> ${{ product.price }}</p>
+                    <p style="font-size: 40px; font-family:fantasy"> {{ product.price }} Rs.</p>
                     <div style="padding-top: 20px; font-size: 25px;">
                         <p><strong>Inventory:</strong> {{ product.inventory }}</p>
                         <p><strong>Expiry Year:</strong> {{ product.expiry_year }}</p>
@@ -148,7 +148,6 @@
                     
                 </div>
                 
-                <a href="{{ url_for('home') }}">Back to Home</a>
             </div>
             
           </div>
