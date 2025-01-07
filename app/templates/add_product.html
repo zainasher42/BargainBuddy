@@ -1,33 +1,200 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
-    <link rel="stylesheet" href="/static/styles.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='add_product_style.css') }}">
+  
+  
+  <style>
+   a,
+   button,
+   input,
+   select,
+   h1,
+   h2,
+   h3,
+   h4,
+   h5,
+   * {
+       box-sizing: border-box;
+       margin: 0;
+       padding: 0;
+       border: none;
+       text-decoration: none;
+       background: none;
+   
+       -webkit-font-smoothing: antialiased;
+   }
+   
+   menu, ol, ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+   }
+   </style>
+  <title>Document</title>
 </head>
 <body>
-    <h1>Add Product</h1>
-    <form action="{{ url_for('add_product') }}" method="POST" enctype="multipart/form-data">
-        <label for="title">Title:</label>
-        <input type="text" name="title" id="title" required>
-        <br>
-        <label for="price">Price:</label>
-        <input type="number" name="price" id="price" required>
-        <br>
-        <label for="inventory">Inventory:</label>
-        <input type="number" name="inventory" id="inventory" required>
-        <br>
-        <label for="expiry_year">Expiry Year:</label>
-        <input type="number" name="expiry_year" id="expiry_year" required>
-        <br>
-        <label for="image">Product Image:</label>
-        <input type="file" name="image" id="image" accept="image/*">
-        <br>
-        <button type="submit">Add Product</button>
-    </form>
+  <div class="main-page">
+    <div class="navbar">
+        <div class="search">
+          <div class="frame-226">
+            <img class="icon-search" src="../static/images/icon-search0.svg" alt="Search Icon" />
+            <input type="text" class="search2" placeholder="Search" />
+          </div>
+        </div>
+        <div class="frame-227">
+          <href onclick="{alert('cart clicked')}"><img class="icon-cart" src="../static/images/icon-cart0.svg" /></href>
+          <div class="button">
+            <href onclick="{alert('cart clicked')}"><div class="button2">Become a seller</div></href>
+          </div>
+          <div class="avater">
+            <href><img class="group-4251" src="../static/images/group-42510.svg" /></href>
+          </div>
+        </div>
+      </div>
+    <div class="sidebar">
+      <div class="frame-238">
+        <div class="frame-232">
+          <href><img class="icon-logo-base" src="./static/images/icon-logo-base0.svg" /></href> 
+        </div>
+        <div class="frame-233">
+          <div class="sidebar-link">
+            <div class="frame-2242">
+              <div class="frame-221">
+                <div class="icon-house">
+                  <img class="group-4250" src="./static/images/group-42500.svg" />
+                </div>
+                <div class="discover">
+                <a style="color: #c4cdd5;" href="{{ url_for('home') }}">Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-link">
+            <div class="frame-active">
+              <div class="frame-221">
+                <img class="icon-box" src="./static/images/icon-box0.svg" />
+                <div class="discover2">Add Products</div>
+              </div>
+            </div>
+            <img class="rectangle-6" src="./static/images/rectangle-60.svg" />
+          </div>
+          <div class="sidebar-link">
+            <div class="frame-2242">
+              <div class="frame-221">
+                <img class="icon-headset" src="./static/images/icon-headset0.svg" />
+                <div class="discover2">Contact</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frame-237">
+        <div class="frame-234">
+          <div class="sidebar-link">
+            <div class="frame-2242">
+              <div class="frame-221">
+                <img class="icon-gear" src="./static/images/icon-gear0.svg" />
+                <div class="discover2">Setting</div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-link">
+            <div class="frame-2242">
+              <div class="frame-221">
+                <img class="icon-question" src="./static/images/icon-question0.svg" />
+                <div class="discover2">Help</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line-2"></div>
+        <div class="frame-236">
+          <div class="frame-235">
+            <div class="terms">Terms</div>
+            <div class="privacy">Privacy</div>
+            <div class="help">Help</div>
+          </div>
+          <div class="copyright-2022-by-ui-lib">
+            Copyright 2025 By BargainBuddy
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="frame-252">
+        
+        <div class="header">
+            <h1 class="best-selling-electronics-products-weekly-update mb-4">Add Product</h1>
+        </div>
+        <div class="input-form">
+          <form action="{{ url_for('add_product') }}" method="POST" enctype="multipart/form-data">
+            
+                <label for="title" class= "quantity">Title:</label>
+                <input type="text" id="title" class="form-control-bg" name="title" step="0.01" required><br>
+                
+                <label for="price" class= "quantity">Price:</label>
+                <input type="number" id="price" class="form-control-bg" name="price" step="0.01" required><br>
     
+                <label for="inventory" class="quantity" >Inventory:</label>
+                <input type="number" id="inventory" class="form-control-bg" name="inventory" required><br>
     
-    <a href="/">Back to Home</a>
+                <label for="expiry_year" class="quantity">Expiry Year:</label>
+                <input type="number" id="expiry_year" class="form-control-bg" name="expiry_year" required><br>
+    
+                <label for="image" class="quantity">Upload a Picture</label>
+                <input type="file" class="form-control-bg" id="image" name="image" required accept="image/*">
+    
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-success me-2">Save</button>
+                    <button type="reset" class="btn btn-warning">Undo</button>
+                </div>
+                
+            </form>
+        </div>
+        
+    
+    </div>
+  </div>
+  
 </body>
+
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+  // Toggle Sidebar Sections
+ // Select the toggle icon
+const toggleIcon = document.querySelector('.icon-logo-base');
+
+// Add click event to toggle the sidebar
+toggleIcon.addEventListener('click', () => {  
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('collapsed'); // Toggle the collapsed class
+});
+
+
+  // Sidebar Link Click Event
+  document.querySelectorAll('.sidebar-link').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetText = link.querySelector('div.discover, div.discover2').textContent;
+      alert(`Navigating to ${targetText}`);
+    });
+  });
+
+  // Footer Terms, Privacy, Help Interactivity
+  document.querySelector('.terms').addEventListener('click', () => {
+    alert('Redirecting to Terms and Conditions...');
+  });
+
+  document.querySelector('.privacy').addEventListener('click', () => {
+    alert('Redirecting to Privacy Policy...');
+  });
+
+  document.querySelector('.help').addEventListener('click', () => {
+    alert('Redirecting to Help...');
+  });
+</script>
+
 </html>

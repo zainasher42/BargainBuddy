@@ -3,6 +3,10 @@ from werkzeug.utils import secure_filename
 import os
 from app import db
 from app.models import Product
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+import tensorflow as tf
 
 def init_routes(app):
     def allowed_file(filename):
@@ -57,3 +61,53 @@ def init_routes(app):
             response = "Accepted" if offered_discount <= max_discount else "Rejected"
             return jsonify({"response": response})
         return render_template("chat_bot.html")
+    
+    # Load the trained AI model
+    price_model = tf.keras.models.load_model('./app/price_optimization_model.h5')
+
+    # Load the scaler used during training (assume it's saved as a pickle file)
+    import pickle
+    with open('./app/scaler.pkl', 'rb') as f:
+        scaler = pickle.load(f)
+
+    @app.route('/product/<int:product_id>')
+    def product_page(product_id):
+        """Product Page: Display details and optimized pricing for a specific product."""
+        product = Product.query.get_or_404(product_id)
+
+        # Maximum discount calculation
+        maximum_discount = float(product.price) * 0.15
+
+        # Product features
+        product_features = {
+            'price': float(product.price),
+            'Inventory': float(product.inventory),
+            'Expiry Year': float(product.expiry_year),
+            'Maximum Discount': maximum_discount
+        }
+
+        # Convert product features to a DataFrame
+        product_df = pd.DataFrame([product_features])
+
+        # Preprocess the features
+        numerical_columns = ['price', 'Inventory', 'Maximum Discount', 'Expiry Year']
+        product_df[numerical_columns] = scaler.transform(product_df[numerical_columns])
+
+        # Load the training columns
+        with open('./app/columns.pkl', 'rb') as f:
+            training_columns = pickle.load(f)
+
+        # Align columns with training data
+        product_df = product_df.reindex(columns=training_columns, fill_value=0)
+
+        # Predict the discount
+        predicted_discount = price_model.predict(product_df)[0][0]
+
+        # Ensure the predicted discount is viable
+        if predicted_discount > maximum_discount:
+            predicted_discount = maximum_discount
+        elif predicted_discount < 0:
+            predicted_discount = float(product.price) * 0.05  # Minimum discount (e.g., 5% of price)
+
+        # Render the product page with the predicted discount
+        return render_template('product.html', product=product, predicted_discount=int(predicted_discount))
