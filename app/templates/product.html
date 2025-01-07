@@ -60,7 +60,9 @@
     <div class="sidebar">
       <div class="frame-238">
         <div class="frame-232">
-          <href><img class="icon-logo-base" src="../static/images/icon-logo-base0.svg" /></href> 
+          <href>
+            <a href="{{ url_for('home') }}"></a>
+            <img class="icon-logo-base" src="../static/images/icon-logo-base0.svg" /></href> 
         </div>
         <div class="frame-233">
           <div class="sidebar-link">
@@ -79,7 +81,9 @@
             <div class="frame-active">
               <div class="frame-221">
                 <img class="icon-box" src="../static/images/icon-box0.svg" />
-                <div class="discover2">Add Product</div>
+                <div class="discover2">
+                  <a style="color: #c4cdd5;" href="{{ url_for('add_product') }}">Add Product</a>
+                </div>
               </div>
             </div>
             <img class="rectangle-6" src="../static/images/rectangle-60.svg" />
@@ -139,7 +143,7 @@
                     <h1>{{ product.title }}</h1>
                 </div>
                 <div class="prod_details">
-                    <p style="font-size: 40px; font-family:fantasy"> {{ product.price }} Rs.</p>
+                    <p style="font-size: 40px; font-family:fantasy; color: #ffc831"> {{ product.price }} Rs.</p>
                     <div style="padding-top: 20px; font-size: 25px;">
                         <p><strong>Inventory:</strong> {{ product.inventory }}</p>
                         <p><strong>Expiry Year:</strong> {{ product.expiry_year }}</p>
@@ -159,18 +163,12 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 <script>
-  // Toggle Sidebar Sections
- // Select the toggle icon
 const toggleIcon = document.querySelector('.icon-logo-base');
-
-// Add click event to toggle the sidebar
 toggleIcon.addEventListener('click', () => {  
   const sidebar = document.querySelector('.sidebar');
-  sidebar.classList.toggle('collapsed'); // Toggle the collapsed class
+  sidebar.classList.toggle('collapsed'); 
 });
 
-
-  // Sidebar Link Click Event
   document.querySelectorAll('.sidebar-link').forEach((link) => {
     link.addEventListener('click', (event) => {
       const targetText = link.querySelector('div.discover, div.discover2').textContent;
@@ -178,7 +176,6 @@ toggleIcon.addEventListener('click', () => {
     });
   });
 
-  // Footer Terms, Privacy, Help Interactivity
   document.querySelector('.terms').addEventListener('click', () => {
     alert('Redirecting to Terms and Conditions...');
   });

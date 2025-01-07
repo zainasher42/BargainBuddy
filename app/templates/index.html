@@ -176,18 +176,13 @@
 </body>
 
 <script>
-  // Toggle Sidebar Sections
- // Select the toggle icon
 const toggleIcon = document.querySelector('.icon-logo-base');
-
-// Add click event to toggle the sidebar
 toggleIcon.addEventListener('click', () => {  
   const sidebar = document.querySelector('.sidebar');
-  sidebar.classList.toggle('collapsed'); // Toggle the collapsed class
+  sidebar.classList.toggle('collapsed'); 
 });
 
 
-  // Footer Terms, Privacy, Help Interactivity
   document.querySelector('.terms').addEventListener('click', () => {
     alert('Redirecting to Terms and Conditions...');
   });
@@ -200,5 +195,4 @@ toggleIcon.addEventListener('click', () => {
     alert('Redirecting to Help...');
   });
 </script>
-
 </html>

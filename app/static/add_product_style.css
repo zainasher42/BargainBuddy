@@ -324,6 +324,7 @@
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  bottom: 8px;
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
@@ -407,6 +408,8 @@
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
+  left: 10px;
+  top: 12px;
 }
 .frame-235 {
   display: flex;
